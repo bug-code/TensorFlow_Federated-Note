@@ -34,10 +34,10 @@ def FAVG_init( ):
                                                                                                 batch_size=100,
                                                                                                 tt_rate = 0.3)
     # experiment model
-    model = mnist_model(comp_model=False)
+#     model = mnist_model(comp_model=False)
 
     # set dataset for server
-    server_0 = server(test_dataset=server_test_dataset , server_model=model) 
+    server_0 = server(test_dataset=server_test_dataset , server_model=mnist_model(comp_model=False)) 
 
     # client set list
     clients_list = []
@@ -49,7 +49,7 @@ def FAVG_init( ):
         clients_list.append( client(
                     local_dataset=client_data_dict, 
                     client_name = client_name_list[i] ,
-                    local_model=  model
+                    local_model=  mnist_model(comp_model=False)
                     ) )
     return server_0 , clients_list
 # train
