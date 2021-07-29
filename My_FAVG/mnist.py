@@ -55,7 +55,7 @@ def generate_clients_data( num_expamples_list_in_clients:list , num_clients = 10
         test_data_list = []
         start_test = 0
         for test_size in [x*tt_rate for x in num_expamples_list_in_clients]:
-            client_i_test_dataset =  list(zip( x_train , y_train ))[start_test:int(test_size)+start_test] 
+            client_i_test_dataset =  list(zip( x_test , y_test ))[start_test:int(test_size)+start_test] 
             test_data_list.append(  preprocess_client_data( client_i_test_dataset )  )
             start_test += size
         
